@@ -9,23 +9,23 @@ range stations = 1..nStations;
 float d[stations][stations] = ...;
 
 //Decision variables
-dvar boolean x[stations][stations]; //decision which station
-									  // supplies which district
-dvar boolean y[stations];			  //decision whether a station	
-									  // is built in a district
+dvar boolean x[stations][stations];
+									  
+dvar boolean y[stations];			 
+									 
 
 //Objective function
-minimize sum(i in stations) y[i];			//corresponds to (11.1)
+minimize sum(i in stations) y[i];			
 
 //Constraints
 subject to {
 	forall(j in stations) 
-		sum(i in stations) x[i][j] >= 1;	//corresponds to (11.2) 	
-											// as >= condition
+		sum(i in stations) x[i][j] >= 1;	
+											
 	
 	forall(i,j in stations){
-		x[i][j] <= y[i];					//corresponds to (11.3)
-		d[i][j]*x[i][j] <= 600;				//corresponds to (11.4)
+		x[i][j] <= y[i];					
+		d[i][j]*x[i][j] <= 600;				
 		
 	}
 }
