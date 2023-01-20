@@ -1,0 +1,8 @@
+/*********************************************
+ * OPL 22.1.0.0 Data
+ * Author: anafs
+ * Creation Date: 13/12/2022 at 05:00:29
+ *********************************************/
+SheetConnection excelinputdata("matriz_distancia.xlsx");
+nStations from SheetRead(excelinputdata,"nStations");
+d from SheetRead(excelinputdata, "matriz_distancia!B2:U21");
